@@ -5,6 +5,8 @@ const sampleObject = {
   key3: "value3",
 };
 
+objectMethods(sampleObject);
+
 // Object Methods Explanation
 function objectMethods(obj) {
   console.log("Original Object:", obj);
@@ -28,5 +30,3 @@ function objectMethods(obj) {
   let newObj = Object.assign({}, obj, { newProperty: "newValue" });
   console.log("After Object.assign():", newObj);
 }
-
-objectMethods(sampleObject);
