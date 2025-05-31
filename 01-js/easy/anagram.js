@@ -23,12 +23,29 @@ function isAnagram(str1, str2) {
   if (normalizedStr1.length !== normalizedStr2.length) {
     return false;
   }
+/*
+// Create frequency maps for both strings
+  const charCount = {};
+
+  for (const char of normalizedStr1) { // Iterate through each character in the first string
+    // Increment the count for each character in the first string
+    charCount[char] = (charCount[char] || 0) + 1; // Initialize or increment the character count
+  }
+
+  for (const char of normalizedStr2) {
+    if (!charCount[char]) {
+      return false; // Character not found or count mismatch
+    }
+    charCount[char]--;
+  }
+*/
 
   // Create frequency maps for both strings
   const charCount = {};
 
-  for (const char of normalizedStr1) {
-    charCount[char] = (charCount[char] || 0) + 1;
+  for (const char of normalizedStr1) { // Iterate through each character in the first string
+    // Increment the count for each character in the first string
+    charCount[char] = (charCount[char] || 0) + 1; // Initialize or increment the character count
   }
 
   for (const char of normalizedStr2) {
