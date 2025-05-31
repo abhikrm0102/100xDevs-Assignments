@@ -15,6 +15,7 @@ module.exports = isAnagram;
 */
 
 function isAnagram(str1, str2) {
+
   // Normalize the strings by removing spaces and converting to lowercase
   const normalizedStr1 = str1.replace(/\s+/g, '').toLowerCase();
   const normalizedStr2 = str2.replace(/\s+/g, '').toLowerCase();
@@ -23,39 +24,20 @@ function isAnagram(str1, str2) {
   if (normalizedStr1.length !== normalizedStr2.length) {
     return false;
   }
-/*
-// Create frequency maps for both strings
-  const charCount = {};
 
-  for (const char of normalizedStr1) { // Iterate through each character in the first string
-    // Increment the count for each character in the first string
-    charCount[char] = (charCount[char] || 0) + 1; // Initialize or increment the character count
-  }
+  const normalize = str => 
+    str
+      .replace(/[^a-z0-9]/gi, '') // Remove non-alphanumeric chars
+      .split('')                  // Split into characters
+      .sort()                     // Sort alphabetically
+      .join('');                  // Join back to string
 
-  for (const char of normalizedStr2) {
-    if (!charCount[char]) {
-      return false; // Character not found or count mismatch
-    }
-    charCount[char]--;
-  }
-*/
-
-  // Create frequency maps for both strings
-  const charCount = {};
-
-  for (const char of normalizedStr1) { // Iterate through each character in the first string
-    // Increment the count for each character in the first string
-    charCount[char] = (charCount[char] || 0) + 1; // Initialize or increment the character count
-  }
-
-  for (const char of normalizedStr2) {
-    if (!charCount[char]) {
-      return false; // Character not found or count mismatch
-    }
-    charCount[char]--;
-  }
-
-  return Object.values(charCount).every(count => count === 0);
+  // Compare the normalized versions of both strings.
+  // If they are equal, the strings are anagrams.
+  return normalize(normalizedStr1) === normalize(normalizedStr2);
 }
 
+// Export the function for use in other modules
 module.exports = isAnagram;
+
+
