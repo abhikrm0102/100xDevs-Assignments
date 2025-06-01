@@ -42,7 +42,7 @@ class Calculator {
   }
 
   divide(num) {
-    if (num === 0) throw new Error("Cannot divide by zero");
+    if (num === 0) throw new Error("Invalid expression"); // Prevent division by zero
     this.result /= num;
   }
 
