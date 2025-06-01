@@ -16,6 +16,53 @@
   Once you've implemented the logic, test your code by running
 */
 
+/*
+// Sorce snipet given in the prompt as question
+
 class Calculator {}
+
+module.exports = Calculator;
+*/
+
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (num === 0) throw new Error("Cannot divide by zero");
+    this.result /= num;
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    try {
+      const sanitizedExpression = expression.replace(/\s+/g, '');
+      this.result = eval(sanitizedExpression);
+      if (isNaN(this.result)) throw new Error("Invalid expression");
+    } catch (error) {
+      throw new Error("Invalid expression");
+    }
+  }
+}
 
 module.exports = Calculator;

@@ -60,7 +60,7 @@ function forEachExample(arr) {
 }
 forEachExample([1, 2, 3]);
 
-// map()
+// map(): this method creates a new array populated with the results of calling a provided function on every element in the calling array.
 function mapExample(arr) {
   console.log("Original Array:", arr);
 
@@ -71,7 +71,7 @@ function mapExample(arr) {
 }
 mapExample([1, 2, 3]);
 
-// filter()
+// filter(): this method creates a new array with all elements that pass the test implemented by the provided function.
 function filterExample(arr) {
   console.log("Original Array:", arr);
 
@@ -103,3 +103,17 @@ function sortExample(arr) {
   console.log("After sort:", arr);
 }
 sortExample([5, 2, 3, 4, 1]);
+
+// splice()
+function spliceExample(arr) {
+  console.log("Original Array:", arr);
+
+  arr.splice(1, 2, 'newElement'); // Removes 2 elements starting from index 1 and adds 'newElement'
+  // arr.splice(starting index, number of elements to remove, element to add)
+  console.log("After splice (adding included):", arr);
+  
+  arr.splice(1, 1); // Removes 1 element starting from index 1
+  // arr.splice(starting index, number of elements to remove)
+  console.log("After splice:", arr);
+}
+spliceExample([1, 2, 3, 4, 5]);

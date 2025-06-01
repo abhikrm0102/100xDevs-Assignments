@@ -10,8 +10,50 @@
   Once you've implemented the logic, test your code by running
 */
 
+/*
+// snipet code given as question prompt
 class Todo {
 
+}
+
+module.exports = Todo;
+*/
+
+class Todo {
+  constructor() {
+    this.todos = [];
+  }
+
+  add(todo) {
+    this.todos.push(todo);
+  }
+
+  remove(indexOfTodo) {
+    if (indexOfTodo >= 0 && indexOfTodo < this.todos.length) {
+      this.todos.splice(indexOfTodo, 1); // Remove the todo at the specified index
+    }
+  }
+
+  update(index, updatedTodo) {
+    if (index >= 0 && index < this.todos.length) {
+      this.todos[index] = updatedTodo; // Update the todo at the specified index
+    }
+  }
+
+  getAll() {
+    return this.todos; // Return all todos
+  }
+
+  get(indexOfTodo) {
+    if (indexOfTodo >= 0 && indexOfTodo < this.todos.length) {
+      return this.todos[indexOfTodo]; // Return the todo at the specified index
+    }
+    return null; // Return null if index is out of bounds
+  }
+
+  clear() {
+    this.todos = []; // Clear all todos
+  }
 }
 
 module.exports = Todo;

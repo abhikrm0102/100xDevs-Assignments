@@ -32,6 +32,9 @@ function isAnagram(str1, str2) {
       .sort()                     // Sort alphabetically
       .join('');                  // Join back to string
 
+    //Same as:
+    // str.replace(/[^a-z0-9]/gi, '').split('').sort().join('');
+
   // Compare the normalized versions of both strings.
   // If they are equal, the strings are anagrams.
   return normalize(normalizedStr1) === normalize(normalizedStr2);
